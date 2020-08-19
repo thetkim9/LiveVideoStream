@@ -10,11 +10,11 @@ Javascript client and python server (flask flask_socketio and javascript socket.
 
 ## how to run
 1. Activate the virtual environment through the following command.
-'''
+```
 source venv/bin/activate
-'''
+```
 
 2. Run the server app.py through the following command.
-'''
+```
 python app.py
-'''
+```
