@@ -1,0 +1,15 @@
+<div id="container">
+    <canvas id="canvasOutput"></canvas>
+    <video autoplay="true" id="videoElement"></video>
+</div>
+
+<div class = 'video'>
+    <img id="image">
+</div>
+
+<input type="button" id="startButton" class="button" value="start streaming">
+<input type="button" id="stopButton" class="button" value="stop streaming">
+
+<script src="{{ url_for('static', filename='opencv.js') }}"></script>
+<script src="{{ url_for('static', filename='socket.io.js') }}"></script>
+<script src="{{ url_for('static', filename='stream.js') }}"></script>
