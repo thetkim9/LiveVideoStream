@@ -8,7 +8,7 @@ Javascript client and python server (flask flask_socketio and javascript socket.
 
 3. Client receives the frame and displays it on the webpage.
 
-## how to run
+## How to run
 1. Activate the virtual environment through the following command.
 ```
 source venv/bin/activate
