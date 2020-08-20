@@ -12,6 +12,8 @@ RUN pip install flask_socketio
 RUN pip install flask_cors
 RUN pip install imutils
 RUN pip install Pillow
+#RUN pip install eventlet
+#RUN apt-get -o Dpkg::Options::="--force-confmiss" install --reinstall netbase
 COPY . .
 EXPOSE 5000
 CMD python app.py

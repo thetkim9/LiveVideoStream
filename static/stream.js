@@ -23,7 +23,7 @@ let src = new cv.Mat(video.height, video.width, cv.CV_8UC4);
 let dst = new cv.Mat(video.height, video.width, cv.CV_8UC1);
 let cap = new cv.VideoCapture(video);
 
-const FPS = 100;
+const FPS = 50;
 
 var emitter;
 
