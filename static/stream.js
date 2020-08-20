@@ -34,7 +34,7 @@ function videoLoop() {
 startButton.onclick = () => {
     $.get('ip_address', function(ip_address) {
         console.log(ip_address);
-        socket = io('http://'+ip_address+':5000');
+        socket = io('/');
         console.log('intermediary stage');
         socket.on('connect', function(){
             console.log("Connected...!", socket.connected);
