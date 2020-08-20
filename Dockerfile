@@ -14,6 +14,8 @@ RUN pip install imutils
 RUN pip install Pillow
 RUN pip install eventlet
 RUN apt-get -o Dpkg::Options::="--force-confmiss" install --reinstall netbase
+RUN pip install gunicorn
 COPY . .
 EXPOSE 5000
-CMD python app.py
+CMD gunicorn --bind 0.0.0.0:5000 --worker-class eventlet -w 1 wsgi:app
+#CMD gunicorn --bind 0.0.0.0:5000 wsgi:app

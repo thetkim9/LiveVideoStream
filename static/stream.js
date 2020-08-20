@@ -5,17 +5,22 @@ var socket;
 
 const video = document.querySelector("#videoElement");
 
-video.width = 250;
-video.height = 187;
+video.width = 125;
+video.height = 93;
 
 var canvas = document.getElementById("canvasOutput");
 var context = canvas.getContext("2d");
 
-canvas.width = 250;
-canvas.height = 187;
+canvas.width = 125;
+canvas.height = 93;
 
 canvas.style.display = 'none';
 video.style.display = 'none';
+
+var image = document.getElementById("image");
+
+image.width = 250;
+image.height = 186;
 
 var drawer;
 
@@ -23,7 +28,7 @@ let src = new cv.Mat(video.height, video.width, cv.CV_8UC4);
 let dst = new cv.Mat(video.height, video.width, cv.CV_8UC1);
 let cap = new cv.VideoCapture(video);
 
-const FPS = 10;
+const FPS = 5;
 
 var emitter;
 
@@ -39,7 +44,7 @@ startButton.onclick = () => {
     });
     socket.on('response_back', function(data){
         const arrayBufferView = new Uint8Array(data.buff);
-        const blob = new Blob([arrayBufferView], {type: 'image/jpeg'});
+        const blob = new Blob([arrayBufferView], {type: 'image/png'});
         const imageUrl = URL.createObjectURL(blob);
         document.getElementById('image').src = imageUrl;
     });
@@ -66,7 +71,7 @@ startButton.onclick = () => {
         if (socket!=null) {
             socket.emit('image', data);
         }
-    }, 10000/FPS);
+    }, 1000/FPS);
 }
 
 stopButton.onclick = () => {
