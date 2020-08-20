@@ -1,5 +1,6 @@
 # Live Video Streaming
-Javascript client and python server (flask flask_socketio and javascript socket.io) 
+Javascript client and python server (flask flask_socketio and javascript socket.io).
+
 As you can see from the dependencies, the streaming service is exclusively for computer vision tasks.
 
 ## What it does
