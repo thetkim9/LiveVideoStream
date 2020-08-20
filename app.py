@@ -8,6 +8,9 @@ import base64
 from PIL import Image
 import io
 import numpy
+from engineio.payload import Payload
+
+Payload.max_decode_packets = 50
 
 app = Flask(__name__, static_url_path="", template_folder="./")
 app.config['SECRET_KEY'] = 'taesu'
