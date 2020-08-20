@@ -14,7 +14,6 @@ Payload.max_decode_packets = 50
 
 app = Flask(__name__, static_url_path="", template_folder="./")
 app.config['SECRET_KEY'] = 'taesu'
-#app.config['SERVER_NAME'] = 'livevideostream.dev:5000'
 socketio = SocketIO(app, cors_allowed_origins="*")
 CORS(app)
 

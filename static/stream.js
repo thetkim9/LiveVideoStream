@@ -5,14 +5,14 @@ var socket;
 
 const video = document.querySelector("#videoElement");
 
-video.width = 500;
-video.height = 375;
+video.width = 250;
+video.height = 187;
 
 var canvas = document.getElementById("canvasOutput");
 var context = canvas.getContext("2d");
 
-canvas.width = 500;
-canvas.height = 375;
+canvas.width = 250;
+canvas.height = 187;
 
 canvas.style.display = 'none';
 video.style.display = 'none';
@@ -23,7 +23,7 @@ let src = new cv.Mat(video.height, video.width, cv.CV_8UC4);
 let dst = new cv.Mat(video.height, video.width, cv.CV_8UC1);
 let cap = new cv.VideoCapture(video);
 
-const FPS = 50;
+const FPS = 10;
 
 var emitter;
 
