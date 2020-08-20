@@ -25,7 +25,7 @@ def index():
 @socketio.on('image')
 def image(data_image):
     # decode and convert into image
-    b = io.BytesIO(base64.b64decode(data_image))
+    b = io.BytesIO(data_image)
     pil_image = Image.open(b).convert('RGB')
     open_cv_image = numpy.array(pil_image)
 
@@ -33,10 +33,9 @@ def image(data_image):
     frame = open_cv_image[:, :, ::-1].copy()
 
     # Process the image frame
-    frame = imutils.resize(frame, width=700)
     frame = cv2.flip(frame, 1)
-    buff = cv2.imencode('.png', frame)[1]
-    response = {'image': True, 'buff': io.BytesIO(buff).getvalue()}
+    buff = cv2.imencode('.jpeg', frame)[1]
+    response = io.BytesIO(buff).getvalue()
 
     #emit response to client
     emit('response_back', response)

@@ -43,8 +43,8 @@ startButton.onclick = () => {
         console.log("Connected...!", socket.connected);
     });
     socket.on('response_back', function(data){
-        const arrayBufferView = new Uint8Array(data.buff);
-        const blob = new Blob([arrayBufferView], {type: 'image/png'});
+        const arrayBufferView = new Uint8Array(data);
+        const blob = new Blob([arrayBufferView], {type: 'image/jpeg'});
         const imageUrl = URL.createObjectURL(blob);
         document.getElementById('image').src = imageUrl;
     });
@@ -65,12 +65,15 @@ startButton.onclick = () => {
     }
     emitter = setInterval(() => {
         cap.read(src);
-        var type = "image/png"
-        var data = canvas.toDataURL(type);
-        data = data.replace('data:' + type + ';base64,', '');
-        if (socket!=null) {
-            socket.emit('image', data);
-        }
+        var type = "image/jpeg"
+        var url = canvas.toDataURL(type);
+        fetch(url)
+        .then(res => res.blob())
+        .then(blob => {
+            if (socket!=null) {
+                socket.emit('image', blob);
+            }
+        })
     }, 1000/FPS);
 }
 
