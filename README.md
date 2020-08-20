@@ -1,6 +1,6 @@
 # Live Video Streaming
 Javascript client and python server (flask flask_socketio and javascript socket.io) 
-As you can see from the dockerfile, the streaming service is exclusively for computer vision tasks.
+As you can see from the dependencies, the streaming service is exclusively for computer vision tasks.
 
 ## What it does
 1. Client sends to the server a video frame created from client's webcam.
