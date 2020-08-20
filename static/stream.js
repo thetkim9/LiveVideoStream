@@ -32,44 +32,41 @@ function videoLoop() {
 }
 
 startButton.onclick = () => {
-    $.get('ip_address', function(ip_address) {
-        console.log(ip_address);
-        socket = io('/');
-        console.log('intermediary stage');
-        socket.on('connect', function(){
-            console.log("Connected...!", socket.connected);
-        });
-        socket.on('response_back', function(data){
-            const arrayBufferView = new Uint8Array(data.buff);
-            const blob = new Blob([arrayBufferView], {type: 'image/jpeg'});
-            const imageUrl = URL.createObjectURL(blob);
-            document.getElementById('image').src = imageUrl;
-        });
-        if (navigator.mediaDevices.getUserMedia) {
-            navigator.mediaDevices.getUserMedia({ video: true })
-            .then(function (stream) {
-                video.srcObject = stream;
-                video.addEventListener('loadeddata', function() {
-                    video.play();
-                    drawer = setInterval(videoLoop, 1000 / 30);
-                });
+    socket = io('/');
+    console.log('intermediary stage');
+    socket.on('connect', function(){
+        console.log("Connected...!", socket.connected);
+    });
+    socket.on('response_back', function(data){
+        const arrayBufferView = new Uint8Array(data.buff);
+        const blob = new Blob([arrayBufferView], {type: 'image/jpeg'});
+        const imageUrl = URL.createObjectURL(blob);
+        document.getElementById('image').src = imageUrl;
+    });
+    if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+            video.srcObject = stream;
+            video.addEventListener('loadeddata', function() {
                 video.play();
-            })
-            .catch(function (err0r) {
-                console.log(err0r)
-                console.log("Something went wrong!");
+                drawer = setInterval(videoLoop, 1000 / 30);
             });
+            video.play();
+        })
+        .catch(function (err0r) {
+            console.log(err0r)
+            console.log("Something went wrong!");
+        });
+    }
+    emitter = setInterval(() => {
+        cap.read(src);
+        var type = "image/png"
+        var data = canvas.toDataURL(type);
+        data = data.replace('data:' + type + ';base64,', '');
+        if (socket!=null) {
+            socket.emit('image', data);
         }
-        emitter = setInterval(() => {
-            cap.read(src);
-            var type = "image/png"
-            var data = canvas.toDataURL(type);
-            data = data.replace('data:' + type + ';base64,', '');
-            if (socket!=null) {
-                socket.emit('image', data);
-            }
-        }, 10000/FPS);
-    })
+    }, 10000/FPS);
 }
 
 stopButton.onclick = () => {

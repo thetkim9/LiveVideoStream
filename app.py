@@ -20,13 +20,6 @@ def index():
     print("index.html")
     return render_template('index.html')
 
-@app.route("/ip_address")
-def ip_address():
-    print("ip address: ")
-    ip_address = request.remote_addr
-    print(ip_address)
-    return ip_address
-
 @socketio.on('image')
 def image(data_image):
     # decode and convert into image
