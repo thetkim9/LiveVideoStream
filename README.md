@@ -3,6 +3,8 @@ Javascript client and python server (flask flask_socketio and javascript socket.
 
 As you can see from the dependencies, the streaming service is exclusively for computer vision tasks.
 
+Multiple client is supported. However, your real-time computer vision task might not be able to do so due to the usage of GPU.
+
 ## What it does
 1. Client sends to the server a video frame created from client's webcam.
 
@@ -10,7 +12,7 @@ As you can see from the dependencies, the streaming service is exclusively for c
 
 3. Client receives the frame and displays it on the webpage.
 
-4. Steps 1~3 happen repeatedly. You can set the rate of the above process by setting the fps at stream.js.
+4. Steps 1~3 happen repeatedly.
 
 ## How to run
 1. Build the docker image through the dockerfile provided or pull docker image 'tkim9/livevideostream' from dockerhub.
