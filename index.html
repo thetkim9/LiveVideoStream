@@ -1,16 +1,42 @@
-<div id="container">
-    <canvas id="canvasOutput"></canvas>
-    <video autoplay="true" id="videoElement"></video>
-</div>
+<HTML>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<div class = 'video'>
-    <img id="image">
-</div>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-<input type="button" id="startButton" class="button" value="start streaming">
-<input type="button" id="stopButton" class="button" value="stop streaming">
+        <title>Live Video Stream</title>
+    </head>
+    <body>
+        <div class = "container">
+            <div class="jumbotron mt-3">
 
-<script src="{{ url_for('static', filename='jquery-3.5.1.js') }}"></script>
-<script src="{{ url_for('static', filename='opencv.js') }}"></script>
-<script src="{{ url_for('static', filename='socket.io.js') }}"></script>
-<script src="{{ url_for('static', filename='stream.js') }}"></script>
+                <h1>Live Video Stream</h1>
+                <A>Git Hub Repo : </A> <A href="https://github.com/thetkim9/LiveVideoStream"> LiveVideoStream</A>
+                <br>
+                <hr class="solid">
+                <br>
+                <div id = 'inputVideo' >
+                    <div id="container">
+                        <canvas id="canvasOutput"></canvas>
+                        <video autoplay="true" id="videoElement"></video>
+                    </div>
+                    <div class = 'video'>
+                        <img id="image" style="background-color:black;">
+                    </div>
+                </div><br>
+                <div id="operate">
+                    <input type="submit" id = "startButton" class="btn btn-primary btn-lg" style="margin-left: auto;" value="Start streaming">
+                    <input type="submit" id = "stopButton" class="btn btn-primary btn-lg" style="margin-left: auto;" value="Stop streaming"
+                    disabled="disabled">
+                </div><br>
+                <script src="{{ url_for('static', filename='jquery-3.5.1.js') }}"></script>
+                <script src="{{ url_for('static', filename='opencv.js') }}"></script>
+                <script src="{{ url_for('static', filename='socket.io.js') }}"></script>
+                <script src="{{ url_for('static', filename='stream.js') }}"></script>
+        </div>
+    </body>
+</HTML>

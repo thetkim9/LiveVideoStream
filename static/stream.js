@@ -37,6 +37,7 @@ function videoLoop() {
 }
 
 startButton.onclick = () => {
+    startButton.disabled = true;
     socket = io('/');
     console.log('intermediary stage');
     socket.on('connect', function(){
@@ -75,9 +76,11 @@ startButton.onclick = () => {
             }
         })
     }, 1000/FPS);
+    stopButton.disabled = false;
 }
 
 stopButton.onclick = () => {
+    stopButton.disabled = true;
     if (socket!=null) {
         socket.on('disconnect', function(){
             console.log("Disconnected...", socket.disconnected);
@@ -88,4 +91,5 @@ stopButton.onclick = () => {
         if (emitter!=null)
             clearInterval(emitter);
     }
+    startButton.disabled = false;
 }
