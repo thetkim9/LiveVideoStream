@@ -1,4 +1,10 @@
 # Live Video Streaming
+
+Try running the service by clicking the button below!!
+
+[![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=https://github.com/thetkim9/LiveVideoStream)
+
+
 Javascript client and python server (flask flask_socketio and javascript socket.io).
 
 As you can see from the dependencies, the streaming service is exclusively for computer vision tasks.
