@@ -2,7 +2,7 @@
 
 Try running the service by clicking the button below!!
 
-[![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://master-live-video-stream-thetkim9.endpoint.ainize.ai/)
+[![Run on Ainize](https://ainize.ai/images/run_on_ainize_button.svg)](https://ainize.ai/thetkim9/LiveVideoStream?branch=master)
 
 
 Javascript client and python server (flask flask_socketio and javascript socket.io).
