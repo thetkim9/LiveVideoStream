@@ -9,7 +9,7 @@ Javascript client and python server (flask flask_socketio and javascript socket.
 
 As you can see from the dependencies, the streaming service is exclusively for computer vision tasks.
 
-Multiple client is supported. However, your real-time computer vision task might not be able to do so due to the usage of GPU.
+Multiple clients are supported. However, your real-time computer vision task might not be able to do so due to the usage of GPU.
 
 ## What it does
 1. Client sends to the server a video frame created from client's webcam.
