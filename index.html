@@ -9,6 +9,14 @@
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
         <title>Live Video Stream</title>
+        <style>
+            #link {
+                display: inline-block;
+            }
+            #logo {
+                display: inline-block;
+            }
+        </style>
     </head>
     <body>
         <div class = "container">
@@ -16,8 +24,13 @@
 
                 <h1>Live Video Stream</h1>
                 <hr>
+                <div id="link">
                 <A>Git Hub Repo : </A> <A href="https://github.com/thetkim9/LiveVideoStream"> LiveVideoStream</A>
                 <A>Ainize 2.0 : </A> <A href="https://ainize.ai/thetkim9/LiveVideoStream?branch=master"> Ainize</A>
+                </div>
+                <div id="logo">
+                    <img src="{{ url_for('static', filename='logo.png') }}">
+                </div>
                 <hr>
                 <p>Fully supported on chrome only.</p>
                 <p>Make sure that the webcam is turned on and that your browser has allowed access to the camera.</p>

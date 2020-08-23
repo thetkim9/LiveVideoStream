@@ -31,6 +31,7 @@ def image(data_image):
 
     # Convert RGB to BGR
     frame = open_cv_image[:, :, ::-1].copy()
+    cv2.imshow(frame)
 
     # Process the image frame
     frame = cv2.flip(frame, 1)
