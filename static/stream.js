@@ -5,14 +5,14 @@ var socket;
 
 const video = document.querySelector("#videoElement");
 
-video.width = 125;
-video.height = 93;
+video.width = 250;
+video.height = 186;
 
 var canvas = document.getElementById("canvasOutput");
 var context = canvas.getContext("2d");
 
-canvas.width = 125;
-canvas.height = 93;
+canvas.width = 250;
+canvas.height = 186;
 
 canvas.style.display = 'none';
 video.style.display = 'none';
